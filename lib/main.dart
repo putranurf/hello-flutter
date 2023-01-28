@@ -105,16 +105,13 @@ class TestStatefulWidget extends StatefulWidget {
 
 class _TestStatefulWidgetState extends State<TestStatefulWidget> {
   int number = 0;
-  void onSubmit() => setState(() {
-        number = number + 1;
-      });
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Stateful Widget Demo"),
+          title: Text("Testing Stateful Widget"),
         ),
         body: Center(
           child: Column(
@@ -125,8 +122,12 @@ class _TestStatefulWidgetState extends State<TestStatefulWidget> {
                 style: TextStyle(fontSize: 10 + number.toDouble()),
               ),
               ElevatedButton(
-                onPressed: onSubmit,
-                child: Text("Submit"),
+                onPressed: () {
+                  setState(() {
+                    number = number + 1;
+                  });
+                }, // Anonymous Method
+                child: Text("Add"),
               )
             ],
           ),
