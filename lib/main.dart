@@ -8,7 +8,8 @@ void main() {
   // runApp(const ContainerApp());
   // runApp(const TestStatefulWidget());
   // runApp(const ListViewApp());
-  runApp(const AnimatedContainerApp());
+  // runApp(const AnimatedContainerApp());
+  runApp(const FlexibleWidgetApp());
 }
 
 // class TextApp extends StatelessWidget {
@@ -203,36 +204,96 @@ void main() {
 //   }
 // }
 
-class AnimatedContainerApp extends StatefulWidget {
-  const AnimatedContainerApp({super.key});
+// class AnimatedContainerApp extends StatefulWidget {
+//   const AnimatedContainerApp({super.key});
 
-  @override
-  State<AnimatedContainerApp> createState() => _AnimatedContainerAppState();
-}
+//   @override
+//   State<AnimatedContainerApp> createState() => _AnimatedContainerAppState();
+// }
 
-class _AnimatedContainerAppState extends State<AnimatedContainerApp> {
-  Random random = Random();
+// class _AnimatedContainerAppState extends State<AnimatedContainerApp> {
+//   Random random = Random();
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: Scaffold(
+//         appBar: AppBar(
+//           title: Text("Animated Container App"),
+//         ),
+//         body: Center(
+//           child: GestureDetector(
+//             onTap: () {
+//               setState(() {});
+//             },
+//             child: AnimatedContainer(
+//               color: Color.fromARGB(255, random.nextInt(256),
+//                   random.nextInt(256), random.nextInt(256)),
+//               duration: Duration(seconds: 1),
+//               width: 50.0 + random.nextInt(101),
+//               height: 50.0 + random.nextInt(101),
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+class FlexibleWidgetApp extends StatelessWidget {
+  const FlexibleWidgetApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Animated Container App"),
+          title: Text("Flexible Widget Demo"),
         ),
-        body: Center(
-          child: GestureDetector(
-            onTap: () {
-              setState(() {});
-            },
-            child: AnimatedContainer(
-              color: Color.fromARGB(255, random.nextInt(256),
-                  random.nextInt(256), random.nextInt(256)),
-              duration: Duration(seconds: 1),
-              width: 50.0 + random.nextInt(101),
-              height: 50.0 + random.nextInt(101),
+        body: Column(
+          children: <Widget>[
+            Flexible(
+              child: Row(
+                children: <Widget>[
+                  Flexible(
+                    flex: 1,
+                    child: Container(
+                      margin: EdgeInsets.all(6),
+                      color: Colors.pink,
+                    ),
+                  ),
+                  Flexible(
+                    flex: 1,
+                    child: Container(
+                      margin: EdgeInsets.all(6),
+                      color: Colors.purple,
+                    ),
+                  ),
+                  Flexible(
+                    flex: 1,
+                    child: Container(
+                      margin: EdgeInsets.all(6),
+                      color: Colors.orange,
+                    ),
+                  )
+                ],
+              ),
             ),
-          ),
+            Flexible(
+              flex: 2,
+              child: Container(
+                margin: EdgeInsets.all(6),
+                color: Colors.blue,
+              ),
+            ),
+            Flexible(
+              flex: 1,
+              child: Container(
+                margin: EdgeInsets.all(6),
+                color: Colors.green,
+              ),
+            ),
+          ],
         ),
       ),
     );
