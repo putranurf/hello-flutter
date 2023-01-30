@@ -114,7 +114,10 @@ class _TestStatefulWidgetState extends State<TestStatefulWidget> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Stateful Widget Demo"),
+          title: const Text(
+            "Training Stateful Widget Flutter",
+            style: TextStyle(fontFamily: "Poppins"),
+          ),
         ),
         body: Center(
           child: Column(
@@ -126,7 +129,16 @@ class _TestStatefulWidgetState extends State<TestStatefulWidget> {
               ),
               ElevatedButton(
                 onPressed: onSubmit,
-                child: Text("Submit"),
+                child: Text(
+                  "Submit",
+                  style: TextStyle(
+                      fontFamily: "Poppins",
+                      fontStyle: FontStyle.italic,
+                      fontSize: 40,
+                      decoration: TextDecoration.underline,
+                      decorationColor: Colors.red,
+                      decorationStyle: TextDecorationStyle.solid),
+                ),
               )
             ],
           ),
