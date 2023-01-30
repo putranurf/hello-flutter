@@ -10,7 +10,8 @@ void main() {
   // runApp(const ListViewApp());
   // runApp(const AnimatedContainerApp());
   // runApp(const FlexibleWidgetApp());
-  runApp(const StackAlignApp());
+  // runApp(const StackAlignApp());
+  runApp(const ImageWidgetApp());
 }
 
 // class TextApp extends StatelessWidget {
@@ -301,158 +302,203 @@ void main() {
 //   }
 // }
 
-class StackAlignApp extends StatelessWidget {
-  const StackAlignApp({super.key});
+// class StackAlignApp extends StatelessWidget {
+//   const StackAlignApp({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: Scaffold(
+//         appBar: AppBar(
+//           title: Text("Stack Align"),
+//         ),
+//         body: Stack(
+//           children: <Widget>[
+//             Column(
+//               children: <Widget>[
+//                 Flexible(
+//                   flex: 1,
+//                   child: Row(
+//                     children: <Widget>[
+//                       Flexible(
+//                           flex: 1,
+//                           child: Container(
+//                             color: Colors.green,
+//                           )),
+//                       Flexible(
+//                           flex: 1,
+//                           child: Container(
+//                             color: Colors.black12,
+//                           )),
+//                     ],
+//                   ),
+//                 ),
+//                 Flexible(
+//                   flex: 1,
+//                   child: Row(
+//                     children: <Widget>[
+//                       Flexible(
+//                           flex: 1,
+//                           child: Container(
+//                             color: Colors.blue,
+//                           )),
+//                       Flexible(
+//                           flex: 1,
+//                           child: Container(
+//                             color: Colors.red,
+//                           )),
+//                     ],
+//                   ),
+//                 ),
+//               ],
+//             ),
+//             ListView(
+//               children: <Widget>[
+//                 Column(
+//                   children: <Widget>[
+//                     Container(
+//                       margin: EdgeInsets.all(10),
+//                       child: Text(
+//                         "Ini adalah text yang ada di lapisan tengah dari stack",
+//                         style: TextStyle(fontSize: 20),
+//                       ),
+//                     ),
+//                     Container(
+//                       margin: EdgeInsets.all(10),
+//                       child: Text(
+//                         "Ini adalah text yang ada di lapisan tengah dari stack",
+//                         style: TextStyle(fontSize: 20),
+//                       ),
+//                     ),
+//                     Container(
+//                       margin: EdgeInsets.all(10),
+//                       child: Text(
+//                         "Ini adalah text yang ada di lapisan tengah dari stack",
+//                         style: TextStyle(fontSize: 20),
+//                       ),
+//                     ),
+//                     Container(
+//                       margin: EdgeInsets.all(10),
+//                       child: Text(
+//                         "Ini adalah text yang ada di lapisan tengah dari stack",
+//                         style: TextStyle(fontSize: 20),
+//                       ),
+//                     ),
+//                     Container(
+//                       margin: EdgeInsets.all(10),
+//                       child: Text(
+//                         "Ini adalah text yang ada di lapisan tengah dari stack",
+//                         style: TextStyle(fontSize: 20),
+//                       ),
+//                     ),
+//                     Container(
+//                       margin: EdgeInsets.all(10),
+//                       child: Text(
+//                         "Ini adalah text yang ada di lapisan tengah dari stack",
+//                         style: TextStyle(fontSize: 20),
+//                       ),
+//                     ),
+//                     Container(
+//                       margin: EdgeInsets.all(10),
+//                       child: Text(
+//                         "Ini adalah text yang ada di lapisan tengah dari stack",
+//                         style: TextStyle(fontSize: 20),
+//                       ),
+//                     ),
+//                     Container(
+//                       margin: EdgeInsets.all(10),
+//                       child: Text(
+//                         "Ini adalah text yang ada di lapisan tengah dari stack",
+//                         style: TextStyle(fontSize: 20),
+//                       ),
+//                     ),
+//                     Container(
+//                       margin: EdgeInsets.all(10),
+//                       child: Text(
+//                         "Ini adalah text yang ada di lapisan tengah dari stack",
+//                         style: TextStyle(fontSize: 20),
+//                       ),
+//                     ),
+//                     Container(
+//                       margin: EdgeInsets.all(10),
+//                       child: Text(
+//                         "Ini adalah text yang ada di lapisan tengah dari stack",
+//                         style: TextStyle(fontSize: 20),
+//                       ),
+//                     ),
+//                     Container(
+//                       margin: EdgeInsets.all(10),
+//                       child: Text(
+//                         "Ini adalah text yang ada di lapisan tengah dari stack",
+//                         style: TextStyle(fontSize: 20),
+//                       ),
+//                     ),
+//                   ],
+//                 ),
+//               ],
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.all(40),
+//               child: Align(
+//                 alignment: Alignment(-1, 0.5),
+//                 child: ElevatedButton(
+//                   style: ElevatedButton.styleFrom(
+//                     primary: Colors.purple,
+//                     onPrimary: Colors.white,
+//                   ),
+//                   onPressed: () {},
+//                   child: Text("My Button"),
+//                 ),
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+class ImageWidgetApp extends StatelessWidget {
+  const ImageWidgetApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: Text("Stack Align"),
-        ),
-        body: Stack(
-          children: <Widget>[
-            Column(
-              children: <Widget>[
-                Flexible(
-                  flex: 1,
-                  child: Row(
-                    children: <Widget>[
-                      Flexible(
-                          flex: 1,
-                          child: Container(
-                            color: Colors.green,
-                          )),
-                      Flexible(
-                          flex: 1,
-                          child: Container(
-                            color: Colors.black12,
-                          )),
-                    ],
+          appBar: AppBar(
+            title: Text("Image Widget"),
+          ),
+          body: ListView(
+            children: <Widget>[
+              Center(
+                child: Container(
+                  color: Colors.grey,
+                  width: 200,
+                  height: 200,
+                  padding: EdgeInsets.all(3),
+                  child: Image(
+                    image:
+                        NetworkImage("https://dummyimage.com/600x400/000/fff"),
+                    fit: BoxFit.contain,
+                    repeat: ImageRepeat.repeat,
                   ),
-                ),
-                Flexible(
-                  flex: 1,
-                  child: Row(
-                    children: <Widget>[
-                      Flexible(
-                          flex: 1,
-                          child: Container(
-                            color: Colors.blue,
-                          )),
-                      Flexible(
-                          flex: 1,
-                          child: Container(
-                            color: Colors.red,
-                          )),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            ListView(
-              children: <Widget>[
-                Column(
-                  children: <Widget>[
-                    Container(
-                      margin: EdgeInsets.all(10),
-                      child: Text(
-                        "Ini adalah text yang ada di lapisan tengah dari stack",
-                        style: TextStyle(fontSize: 20),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.all(10),
-                      child: Text(
-                        "Ini adalah text yang ada di lapisan tengah dari stack",
-                        style: TextStyle(fontSize: 20),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.all(10),
-                      child: Text(
-                        "Ini adalah text yang ada di lapisan tengah dari stack",
-                        style: TextStyle(fontSize: 20),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.all(10),
-                      child: Text(
-                        "Ini adalah text yang ada di lapisan tengah dari stack",
-                        style: TextStyle(fontSize: 20),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.all(10),
-                      child: Text(
-                        "Ini adalah text yang ada di lapisan tengah dari stack",
-                        style: TextStyle(fontSize: 20),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.all(10),
-                      child: Text(
-                        "Ini adalah text yang ada di lapisan tengah dari stack",
-                        style: TextStyle(fontSize: 20),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.all(10),
-                      child: Text(
-                        "Ini adalah text yang ada di lapisan tengah dari stack",
-                        style: TextStyle(fontSize: 20),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.all(10),
-                      child: Text(
-                        "Ini adalah text yang ada di lapisan tengah dari stack",
-                        style: TextStyle(fontSize: 20),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.all(10),
-                      child: Text(
-                        "Ini adalah text yang ada di lapisan tengah dari stack",
-                        style: TextStyle(fontSize: 20),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.all(10),
-                      child: Text(
-                        "Ini adalah text yang ada di lapisan tengah dari stack",
-                        style: TextStyle(fontSize: 20),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.all(10),
-                      child: Text(
-                        "Ini adalah text yang ada di lapisan tengah dari stack",
-                        style: TextStyle(fontSize: 20),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.all(40),
-              child: Align(
-                alignment: Alignment(-1, 0.5),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.purple,
-                    onPrimary: Colors.white,
-                  ),
-                  onPressed: () {},
-                  child: Text("My Button"),
                 ),
               ),
-            ),
-          ],
-        ),
-      ),
+              Center(
+                child: Container(
+                  color: Colors.grey,
+                  width: 200,
+                  height: 200,
+                  padding: EdgeInsets.all(3),
+                  child: Image(
+                    image: AssetImage("images/dummy.jpg"),
+                    fit: BoxFit.contain,
+                    repeat: ImageRepeat.repeat,
+                  ),
+                ),
+              ),
+            ],
+          )),
     );
   }
 }
