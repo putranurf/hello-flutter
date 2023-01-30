@@ -4,7 +4,8 @@ void main() {
   // runApp(const RowColumn());
   // runApp(const TextApp());
   // runApp(const ContainerApp());
-  runApp(const TestStatefulWidget());
+  // runApp(const TestStatefulWidget());
+  runApp(const ListViewApp());
 }
 
 // class TextApp extends StatelessWidget {
@@ -96,54 +97,104 @@ void main() {
 //   }
 // }
 
-class TestStatefulWidget extends StatefulWidget {
-  const TestStatefulWidget({super.key});
+// class TestStatefulWidget extends StatefulWidget {
+//   const TestStatefulWidget({super.key});
+
+//   @override
+//   State<TestStatefulWidget> createState() => _TestStatefulWidgetState();
+// }
+
+// class _TestStatefulWidgetState extends State<TestStatefulWidget> {
+//   int number = 0;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: Scaffold(
+//         appBar: AppBar(
+//           title: const Text(
+//             "Training Stateful Widget Flutter",
+//             style: TextStyle(fontFamily: "Poppins"),
+//           ),
+//         ),
+//         body: Center(
+//           child: Column(
+//             mainAxisAlignment: MainAxisAlignment.center,
+//             children: <Widget>[
+//               Text(
+//                 number.toString(),
+//                 style: TextStyle(fontSize: 10 + number.toDouble()),
+//               ),
+//               ElevatedButton(
+//                 onPressed: () {
+//                   setState(() {
+//                     number = number + 1;
+//                   }); // Anonymous Method
+//                 },
+//                 child: Text(
+//                   "Submit",
+//                   style: TextStyle(
+//                       fontFamily: "Poppins",
+//                       fontStyle: FontStyle.italic,
+//                       fontSize: 40,
+//                       decoration: TextDecoration.underline,
+//                       decorationColor: Colors.red,
+//                       decorationStyle: TextDecorationStyle.solid),
+//                 ),
+//               )
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+class ListViewApp extends StatefulWidget {
+  const ListViewApp({super.key});
 
   @override
-  State<TestStatefulWidget> createState() => _TestStatefulWidgetState();
+  State<ListViewApp> createState() => _ListViewAppState();
 }
 
-class _TestStatefulWidgetState extends State<TestStatefulWidget> {
-  int number = 0;
+class _ListViewAppState extends State<ListViewApp> {
+  List<Widget> widgets = [];
+  int counter = 1;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text(
-            "Training Stateful Widget Flutter",
-            style: TextStyle(fontFamily: "Poppins"),
-          ),
+          title: Text("List View App"),
         ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+        body: ListView(children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
-              Text(
-                number.toString(),
-                style: TextStyle(fontSize: 10 + number.toDouble()),
-              ),
               ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    number = number + 1;
-                  }); // Anonymous Method
-                },
-                child: Text(
-                  "Submit",
-                  style: TextStyle(
-                      fontFamily: "Poppins",
-                      fontStyle: FontStyle.italic,
-                      fontSize: 40,
-                      decoration: TextDecoration.underline,
-                      decorationColor: Colors.red,
-                      decorationStyle: TextDecorationStyle.solid),
-                ),
-              )
+                  onPressed: () {
+                    setState(() {
+                      widgets.add(Text("Data Ke" + counter.toString()));
+                      counter++;
+                    });
+                  },
+                  child: Text("Tambah")),
+              ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      widgets.removeLast();
+                      counter--;
+                    });
+                  },
+                  child: Text("Hapus")),
             ],
           ),
-        ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: widgets,
+          )
+        ]),
       ),
     );
   }
