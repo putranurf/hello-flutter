@@ -105,9 +105,6 @@ class TestStatefulWidget extends StatefulWidget {
 
 class _TestStatefulWidgetState extends State<TestStatefulWidget> {
   int number = 0;
-  void onSubmit() => setState(() {
-        number = number + 1;
-      });
 
   @override
   Widget build(BuildContext context) {
@@ -128,7 +125,11 @@ class _TestStatefulWidgetState extends State<TestStatefulWidget> {
                 style: TextStyle(fontSize: 10 + number.toDouble()),
               ),
               ElevatedButton(
-                onPressed: onSubmit,
+                onPressed: () {
+                  setState(() {
+                    number = number + 1;
+                  }); // Anonymous Method
+                },
                 child: Text(
                   "Submit",
                   style: TextStyle(
