@@ -468,14 +468,15 @@ class ImageWidgetApp extends StatelessWidget {
           appBar: AppBar(
             title: Text("Image Widget"),
           ),
-          body: ListView(
+          body: Column(
             children: <Widget>[
-              Center(
+              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              Container(
                 child: Container(
                   color: Colors.grey,
                   width: 200,
                   height: 200,
-                  padding: EdgeInsets.all(3),
+                  // padding: EdgeInsets.all(6),
                   child: Image(
                     image:
                         NetworkImage("https://dummyimage.com/600x400/000/fff"),
@@ -484,18 +485,40 @@ class ImageWidgetApp extends StatelessWidget {
                   ),
                 ),
               ),
-              Center(
+              Spacer(
+                flex: 1,
+              ),
+              Container(
                 child: Container(
                   color: Colors.grey,
                   width: 200,
                   height: 200,
-                  padding: EdgeInsets.all(3),
+                  // padding: EdgeInsets.all(6),
                   child: Image(
                     image: AssetImage("images/dummy.jpg"),
                     fit: BoxFit.contain,
                     repeat: ImageRepeat.repeat,
                   ),
                 ),
+              ),
+              Spacer(
+                flex: 4,
+              ),
+              Container(
+                child: Container(
+                  color: Colors.grey,
+                  width: 200,
+                  height: 200,
+                  // padding: EdgeInsets.all(6),
+                  child: Image(
+                    image: AssetImage("images/dummy.jpg"),
+                    fit: BoxFit.contain,
+                    repeat: ImageRepeat.repeat,
+                  ),
+                ),
+              ),
+              Spacer(
+                flex: 3,
               ),
             ],
           )),
