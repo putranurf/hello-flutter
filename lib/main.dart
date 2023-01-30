@@ -105,13 +105,16 @@ class TestStatefulWidget extends StatefulWidget {
 
 class _TestStatefulWidgetState extends State<TestStatefulWidget> {
   int number = 0;
+  void onSubmit() => setState(() {
+        number = number + 1;
+      });
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Stateful Widget Demo"),
+          title: Text("Training Stateful Widget"),
         ),
         body: Center(
           child: Column(
