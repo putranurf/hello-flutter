@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -5,7 +7,8 @@ void main() {
   // runApp(const TextApp());
   // runApp(const ContainerApp());
   // runApp(const TestStatefulWidget());
-  runApp(const ListViewApp());
+  // runApp(const ListViewApp());
+  runApp(const AnimatedContainerApp());
 }
 
 // class TextApp extends StatelessWidget {
@@ -150,51 +153,87 @@ void main() {
 //   }
 // }
 
-class ListViewApp extends StatefulWidget {
-  const ListViewApp({super.key});
+// class ListViewApp extends StatefulWidget {
+//   const ListViewApp({super.key});
+
+//   @override
+//   State<ListViewApp> createState() => _ListViewAppState();
+// }
+
+// class _ListViewAppState extends State<ListViewApp> {
+//   List<Widget> widgets = [];
+//   int counter = 1;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: Scaffold(
+//         appBar: AppBar(
+//           title: Text("List View App"),
+//         ),
+//         body: ListView(children: <Widget>[
+//           Row(
+//             mainAxisAlignment: MainAxisAlignment.spaceAround,
+//             children: <Widget>[
+//               ElevatedButton(
+//                   onPressed: () {
+//                     setState(() {
+//                       widgets.add(Text("Data Ke" + counter.toString()));
+//                       counter++;
+//                     });
+//                   },
+//                   child: Text("Tambah")),
+//               ElevatedButton(
+//                   onPressed: () {
+//                     setState(() {
+//                       widgets.removeLast();
+//                       counter--;
+//                     });
+//                   },
+//                   child: Text("Hapus")),
+//             ],
+//           ),
+//           Column(
+//             crossAxisAlignment: CrossAxisAlignment.start,
+//             children: widgets,
+//           )
+//         ]),
+//       ),
+//     );
+//   }
+// }
+
+class AnimatedContainerApp extends StatefulWidget {
+  const AnimatedContainerApp({super.key});
 
   @override
-  State<ListViewApp> createState() => _ListViewAppState();
+  State<AnimatedContainerApp> createState() => _AnimatedContainerAppState();
 }
 
-class _ListViewAppState extends State<ListViewApp> {
-  List<Widget> widgets = [];
-  int counter = 1;
+class _AnimatedContainerAppState extends State<AnimatedContainerApp> {
+  Random random = Random();
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("List View App"),
+          title: Text("Animated Container App"),
         ),
-        body: ListView(children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      widgets.add(Text("Data Ke" + counter.toString()));
-                      counter++;
-                    });
-                  },
-                  child: Text("Tambah")),
-              ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      widgets.removeLast();
-                      counter--;
-                    });
-                  },
-                  child: Text("Hapus")),
-            ],
+        body: Center(
+          child: GestureDetector(
+            onTap: () {
+              setState(() {});
+            },
+            child: AnimatedContainer(
+              color: Color.fromARGB(255, random.nextInt(256),
+                  random.nextInt(256), random.nextInt(256)),
+              duration: Duration(seconds: 1),
+              width: 50.0 + random.nextInt(101),
+              height: 50.0 + random.nextInt(101),
+            ),
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: widgets,
-          )
-        ]),
+        ),
       ),
     );
   }
