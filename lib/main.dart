@@ -105,19 +105,13 @@ class TestStatefulWidget extends StatefulWidget {
 
 class _TestStatefulWidgetState extends State<TestStatefulWidget> {
   int number = 0;
-  void onSubmit() => setState(() {
-        number = number + 1;
-      });
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text(
-            "Training Stateful Widget Flutter",
-            style: TextStyle(fontFamily: "Poppins"),
-          ),
+          title: Text("Stateful Widget Demo"),
         ),
         body: Center(
           child: Column(
@@ -129,16 +123,7 @@ class _TestStatefulWidgetState extends State<TestStatefulWidget> {
               ),
               ElevatedButton(
                 onPressed: onSubmit,
-                child: Text(
-                  "Submit",
-                  style: TextStyle(
-                      fontFamily: "Poppins",
-                      fontStyle: FontStyle.italic,
-                      fontSize: 40,
-                      decoration: TextDecoration.underline,
-                      decorationColor: Colors.red,
-                      decorationStyle: TextDecorationStyle.solid),
-                ),
+                child: Text("Submit"),
               )
             ],
           ),
