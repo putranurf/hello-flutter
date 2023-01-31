@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:hello_flutter/login_page.dart';
 import 'package:hello_flutter/main_page.dart';
+import 'package:hello_flutter/opacity.dart';
 
 void main() {
   // runApp(const RowColumn());
@@ -20,7 +21,8 @@ void main() {
   // runApp(const CardWidgetApp());
   // runApp(const TextFieldWidgetApp());
   // runApp(const MediaQueryApp());
-  runApp(const InkWellApp());
+  // runApp(const InkWellApp());
+  runApp(const OpacityApp());
 }
 
 // class TextApp extends StatelessWidget {
@@ -807,64 +809,75 @@ void main() {
 //   }
 // }
 
-class InkWellApp extends StatelessWidget {
-  const InkWellApp({super.key});
+// class InkWellApp extends StatelessWidget {
+//   const InkWellApp({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: Scaffold(
+//         appBar: AppBar(
+//           title: Text("InkWell App"),
+//         ),
+//         body: Center(
+//           child: Column(
+//             mainAxisAlignment: MainAxisAlignment.spaceAround,
+//             children: <Widget>[
+//               ElevatedButton(
+//                 onPressed: () {},
+//                 child: Text("Elevated Button"),
+//                 style: ElevatedButton.styleFrom(
+//                     primary: Colors.amber, shape: StadiumBorder()),
+//               ),
+//               Material(
+//                 elevation: 20,
+//                 borderRadius: BorderRadius.circular(20),
+//                 child: Container(
+//                   width: 150,
+//                   height: 40,
+//                   decoration: BoxDecoration(
+//                     borderRadius: BorderRadius.circular(20),
+//                     gradient: LinearGradient(
+//                       colors: [Colors.purple, Colors.pink],
+//                       begin: Alignment.topCenter,
+//                       end: Alignment.bottomCenter,
+//                     ),
+//                   ),
+//                   child: Material(
+//                     borderRadius: BorderRadius.circular(20),
+//                     color: Colors.transparent,
+//                     child: InkWell(
+//                       splashColor: Colors.amber,
+//                       borderRadius: BorderRadius.circular(20),
+//                       onTap: () {},
+//                       child: Center(
+//                         child: Text(
+//                           "Button",
+//                           style: TextStyle(
+//                             color: Colors.white,
+//                             fontWeight: FontWeight.w600,
+//                           ),
+//                         ),
+//                       ),
+//                     ),
+//                   ),
+//                 ),
+//               )
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+class OpacityApp extends StatelessWidget {
+  const OpacityApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("InkWell App"),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              ElevatedButton(
-                onPressed: () {},
-                child: Text("Elevated Button"),
-                style: ElevatedButton.styleFrom(
-                    primary: Colors.amber, shape: StadiumBorder()),
-              ),
-              Material(
-                elevation: 20,
-                borderRadius: BorderRadius.circular(20),
-                child: Container(
-                  width: 150,
-                  height: 40,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    gradient: LinearGradient(
-                      colors: [Colors.purple, Colors.pink],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                    ),
-                  ),
-                  child: Material(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.transparent,
-                    child: InkWell(
-                      splashColor: Colors.amber,
-                      borderRadius: BorderRadius.circular(20),
-                      onTap: () {},
-                      child: Center(
-                        child: Text(
-                          "Button",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              )
-            ],
-          ),
-        ),
-      ),
+      home: OpacityPageApp(),
     );
   }
 }
