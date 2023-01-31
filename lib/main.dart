@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:hello_flutter/login_page.dart';
 
 void main() {
   // runApp(const RowColumn());
@@ -13,6 +14,7 @@ void main() {
   // runApp(const StackAlignApp());
   // runApp(const ImageWidgetApp());
   // runApp(const DraggableApp());
+  runApp(const MultiPageNavigationApp());
 }
 
 // class TextApp extends StatelessWidget {
@@ -645,3 +647,14 @@ void main() {
 //     );
 //   }
 // }
+
+class MultiPageNavigationApp extends StatelessWidget {
+  const MultiPageNavigationApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: LoginPage(),
+    );
+  }
+}
