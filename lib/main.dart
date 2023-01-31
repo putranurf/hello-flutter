@@ -11,7 +11,8 @@ void main() {
   // runApp(const AnimatedContainerApp());
   // runApp(const FlexibleWidgetApp());
   // runApp(const StackAlignApp());
-  runApp(const ImageWidgetApp());
+  // runApp(const ImageWidgetApp());
+  // runApp(const DraggableApp());
 }
 
 // class TextApp extends StatelessWidget {
@@ -458,70 +459,189 @@ void main() {
 //   }
 // }
 
-class ImageWidgetApp extends StatelessWidget {
-  const ImageWidgetApp({super.key});
+// class ImageWidgetApp extends StatelessWidget {
+//   const ImageWidgetApp({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-          appBar: AppBar(
-            title: Text("Image Widget"),
-          ),
-          body: Column(
-            children: <Widget>[
-              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              Container(
-                child: Container(
-                  color: Colors.grey,
-                  width: 200,
-                  height: 200,
-                  // padding: EdgeInsets.all(6),
-                  child: Image(
-                    image:
-                        NetworkImage("https://dummyimage.com/600x400/000/fff"),
-                    fit: BoxFit.contain,
-                    repeat: ImageRepeat.repeat,
-                  ),
-                ),
-              ),
-              Spacer(
-                flex: 1,
-              ),
-              Container(
-                child: Container(
-                  color: Colors.grey,
-                  width: 200,
-                  height: 200,
-                  // padding: EdgeInsets.all(6),
-                  child: Image(
-                    image: AssetImage("images/dummy.jpg"),
-                    fit: BoxFit.contain,
-                    repeat: ImageRepeat.repeat,
-                  ),
-                ),
-              ),
-              Spacer(
-                flex: 4,
-              ),
-              Container(
-                child: Container(
-                  color: Colors.grey,
-                  width: 200,
-                  height: 200,
-                  // padding: EdgeInsets.all(6),
-                  child: Image(
-                    image: AssetImage("images/dummy.jpg"),
-                    fit: BoxFit.contain,
-                    repeat: ImageRepeat.repeat,
-                  ),
-                ),
-              ),
-              Spacer(
-                flex: 3,
-              ),
-            ],
-          )),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: Scaffold(
+//           appBar: AppBar(
+//             title: Text("Image Widget"),
+//           ),
+//           body: Column(
+//             children: <Widget>[
+//               // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//               Container(
+//                 child: Container(
+//                   color: Colors.grey,
+//                   width: 200,
+//                   height: 200,
+//                   // padding: EdgeInsets.all(6),
+//                   child: Image(
+//                     image:
+//                         NetworkImage("https://dummyimage.com/600x400/000/fff"),
+//                     fit: BoxFit.contain,
+//                     repeat: ImageRepeat.repeat,
+//                   ),
+//                 ),
+//               ),
+//               Spacer(
+//                 flex: 1,
+//               ),
+//               Container(
+//                 child: Container(
+//                   color: Colors.grey,
+//                   width: 200,
+//                   height: 200,
+//                   // padding: EdgeInsets.all(6),
+//                   child: Image(
+//                     image: AssetImage("images/dummy.jpg"),
+//                     fit: BoxFit.contain,
+//                     repeat: ImageRepeat.repeat,
+//                   ),
+//                 ),
+//               ),
+//               Spacer(
+//                 flex: 4,
+//               ),
+//               Container(
+//                 child: Container(
+//                   color: Colors.grey,
+//                   width: 200,
+//                   height: 200,
+//                   // padding: EdgeInsets.all(6),
+//                   child: Image(
+//                     image: AssetImage("images/dummy.jpg"),
+//                     fit: BoxFit.contain,
+//                     repeat: ImageRepeat.repeat,
+//                   ),
+//                 ),
+//               ),
+//               Spacer(
+//                 flex: 3,
+//               ),
+//             ],
+//           )),
+//     );
+//   }
+// }
+
+// class DraggableApp extends StatefulWidget {
+//   const DraggableApp({super.key});
+
+//   @override
+//   State<DraggableApp> createState() => _DraggableAppState();
+// }
+
+// class _DraggableAppState extends State<DraggableApp> {
+//   Color color1 = Colors.red;
+//   Color color2 = Colors.amber;
+//   late Color targetColor;
+//   bool isAccepted = false;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: Scaffold(
+//         appBar: AppBar(
+//           title: Text("Draggable App"),
+//         ),
+//         body: Column(
+//           mainAxisAlignment: MainAxisAlignment.spaceAround,
+//           children: <Widget>[
+//             Row(
+//               mainAxisAlignment: MainAxisAlignment.spaceAround,
+//               children: <Widget>[
+//                 Draggable<Color>(
+//                   data: color1,
+//                   child: SizedBox(
+//                     width: 50,
+//                     height: 50,
+//                     child: Material(
+//                       color: Colors.red,
+//                       shape: StadiumBorder(),
+//                       elevation: 13,
+//                     ),
+//                   ),
+//                   childWhenDragging: SizedBox(
+//                     width: 50,
+//                     height: 50,
+//                     child: Material(
+//                       color: Colors.grey,
+//                       shape: StadiumBorder(),
+//                     ),
+//                   ),
+//                   feedback: SizedBox(
+//                     width: 50,
+//                     height: 50,
+//                     child: Material(
+//                       color: color1.withOpacity(0.7),
+//                       shape: StadiumBorder(),
+//                       elevation: 13,
+//                     ),
+//                   ),
+//                 ),
+//                 Draggable<Color>(
+//                   data: color2,
+//                   child: SizedBox(
+//                     width: 50,
+//                     height: 50,
+//                     child: Material(
+//                       color: color2,
+//                       shape: StadiumBorder(),
+//                       elevation: 13,
+//                     ),
+//                   ),
+//                   childWhenDragging: SizedBox(
+//                     width: 50,
+//                     height: 50,
+//                     child: Material(
+//                       color: Colors.grey,
+//                       shape: StadiumBorder(),
+//                     ),
+//                   ),
+//                   feedback: SizedBox(
+//                     width: 50,
+//                     height: 50,
+//                     child: Material(
+//                       color: color2.withOpacity(0.7),
+//                       shape: StadiumBorder(),
+//                       elevation: 13,
+//                     ),
+//                   ),
+//                 ),
+//               ],
+//             ),
+//             DragTarget<Color>(
+//               onWillAccept: (value) => true,
+//               onAccept: (value) {
+//                 isAccepted = true;
+//                 targetColor = value;
+//               },
+//               builder: (context, candidateData, rejectedData) {
+//                 return (isAccepted)
+//                     ? SizedBox(
+//                         width: 100,
+//                         height: 100,
+//                         child: Material(
+//                           color: targetColor,
+//                           shape: StadiumBorder(),
+//                         ),
+//                       )
+//                     : SizedBox(
+//                         width: 100,
+//                         height: 100,
+//                         child: Material(
+//                           color: Colors.grey,
+//                           shape: StadiumBorder(),
+//                         ),
+//                       );
+//               },
+//             )
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
