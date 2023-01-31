@@ -19,7 +19,8 @@ void main() {
   // runApp(const AppBarExampleApp());
   // runApp(const CardWidgetApp());
   // runApp(const TextFieldWidgetApp());
-  runApp(const MediaQueryApp());
+  // runApp(const MediaQueryApp());
+  runApp(const InkWellApp());
 }
 
 // class TextApp extends StatelessWidget {
@@ -795,13 +796,75 @@ void main() {
 //   }
 // }
 
-class MediaQueryApp extends StatelessWidget {
-  const MediaQueryApp({super.key});
+// class MediaQueryApp extends StatelessWidget {
+//   const MediaQueryApp({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: MainPage(),
+//     );
+//   }
+// }
+
+class InkWellApp extends StatelessWidget {
+  const InkWellApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MainPage(),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("InkWell App"),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              ElevatedButton(
+                onPressed: () {},
+                child: Text("Elevated Button"),
+                style: ElevatedButton.styleFrom(
+                    primary: Colors.amber, shape: StadiumBorder()),
+              ),
+              Material(
+                elevation: 20,
+                borderRadius: BorderRadius.circular(20),
+                child: Container(
+                  width: 150,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    gradient: LinearGradient(
+                      colors: [Colors.purple, Colors.pink],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                    ),
+                  ),
+                  child: Material(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.transparent,
+                    child: InkWell(
+                      splashColor: Colors.amber,
+                      borderRadius: BorderRadius.circular(20),
+                      onTap: () {},
+                      child: Center(
+                        child: Text(
+                          "Button",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
