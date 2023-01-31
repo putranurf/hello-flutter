@@ -16,7 +16,8 @@ void main() {
   // runApp(const DraggableApp());
   // runApp(const MultiPageNavigationApp());
   // runApp(const AppBarExampleApp());
-  runApp(const CardWidgetApp());
+  // runApp(const CardWidgetApp());
+  runApp(const TextFieldWidgetApp());
 }
 
 // class TextApp extends StatelessWidget {
@@ -699,39 +700,95 @@ void main() {
 //   }
 // }
 
-class CardWidgetApp extends StatelessWidget {
-  const CardWidgetApp({super.key});
+// class CardWidgetApp extends StatelessWidget {
+//   const CardWidgetApp({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: Scaffold(
+//         backgroundColor: Colors.green,
+//         body: Container(
+//           margin: EdgeInsets.all(10),
+//           child: ListView(
+//             children: <Widget>[
+//               buildCard(Icons.account_box, "Account Box"),
+//               buildCard(Icons.adb, "Android"),
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+
+//   Card buildCard(IconData iconData, String text) {
+//     return Card(
+//       elevation: 5,
+//       child: Row(children: <Widget>[
+//         Container(
+//             margin: EdgeInsets.all(5),
+//             child: Icon(
+//               iconData,
+//               color: Colors.green,
+//             )),
+//         Text(text),
+//       ]),
+//     );
+//   }
+// }
+
+class TextFieldWidgetApp extends StatefulWidget {
+  const TextFieldWidgetApp({super.key});
+
+  @override
+  State<TextFieldWidgetApp> createState() => _TextFieldWidgetAppState();
+}
+
+class _TextFieldWidgetAppState extends State<TextFieldWidgetApp> {
+  TextEditingController controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.green,
+        appBar: AppBar(title: Text("TextField Widget")),
         body: Container(
-          margin: EdgeInsets.all(10),
-          child: ListView(
+          margin: EdgeInsets.all(25),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
-              buildCard(Icons.account_box, "Account Box"),
-              buildCard(Icons.adb, "Android"),
+              TextField(
+                maxLength: 5,
+                decoration: InputDecoration(
+                  // icon: Icon(Icons.people),
+                  fillColor: Colors.lightBlue[50],
+                  filled: true,
+                  prefixIcon: Icon(Icons.people_alt),
+                  // suffix: Container(
+                  //   width: 5,
+                  //   height: 5,
+                  //   color: Colors.red,
+                  // ),
+                  // prefixText: "Username",
+                  // prefixStyle: TextStyle(color: Colors.blue),
+                  // labelText: "Username",
+                  // labelStyle: TextStyle(color: Colors.blue),
+                  // hintText: "Username isi disini",
+                  // hintStyle: TextStyle(color: Colors.blue, fontSize: 12),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+                onChanged: (value) {
+                  setState(() {});
+                },
+                controller: controller,
+              ),
+              Text(controller.text)
             ],
           ),
         ),
       ),
-    );
-  }
-
-  Card buildCard(IconData iconData, String text) {
-    return Card(
-      elevation: 5,
-      child: Row(children: <Widget>[
-        Container(
-            margin: EdgeInsets.all(5),
-            child: Icon(
-              iconData,
-              color: Colors.green,
-            )),
-        Text(text),
-      ]),
     );
   }
 }
