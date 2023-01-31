@@ -14,7 +14,8 @@ void main() {
   // runApp(const StackAlignApp());
   // runApp(const ImageWidgetApp());
   // runApp(const DraggableApp());
-  runApp(const MultiPageNavigationApp());
+  // runApp(const MultiPageNavigationApp());
+  runApp(const AppBarExampleApp());
 }
 
 // class TextApp extends StatelessWidget {
@@ -648,13 +649,51 @@ void main() {
 //   }
 // }
 
-class MultiPageNavigationApp extends StatelessWidget {
-  const MultiPageNavigationApp({super.key});
+// class MultiPageNavigationApp extends StatelessWidget {
+//   const MultiPageNavigationApp({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: LoginPage(),
+//     );
+//   }
+// }
+
+class AppBarExampleApp extends StatelessWidget {
+  const AppBarExampleApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: LoginPage(),
+      home: Scaffold(
+        appBar: AppBar(
+          leading: Icon(
+            Icons.adb,
+            color: Colors.white,
+          ),
+          title: Text(
+            "AppBar Example",
+            style: TextStyle(color: Colors.white),
+          ),
+          actions: <Widget>[
+            IconButton(onPressed: () {}, icon: Icon(Icons.settings)),
+            IconButton(onPressed: () {}, icon: Icon(Icons.exit_to_app)),
+          ],
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/images/pattern.png"),
+                  fit: BoxFit.none,
+                  repeat: ImageRepeat.repeat,
+                ),
+                gradient: LinearGradient(
+                    colors: [Color(0xff0096ff), Color(0xff6610f2)],
+                    begin: FractionalOffset.topLeft,
+                    end: FractionalOffset.bottomRight)),
+          ),
+        ),
+      ),
     );
   }
 }
