@@ -15,7 +15,8 @@ void main() {
   // runApp(const ImageWidgetApp());
   // runApp(const DraggableApp());
   // runApp(const MultiPageNavigationApp());
-  runApp(const AppBarExampleApp());
+  // runApp(const AppBarExampleApp());
+  runApp(const CardWidgetApp());
 }
 
 // class TextApp extends StatelessWidget {
@@ -660,40 +661,77 @@ void main() {
 //   }
 // }
 
-class AppBarExampleApp extends StatelessWidget {
-  const AppBarExampleApp({super.key});
+// class AppBarExampleApp extends StatelessWidget {
+//   const AppBarExampleApp({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: Scaffold(
+//         appBar: AppBar(
+//           leading: Icon(
+//             Icons.adb,
+//             color: Colors.white,
+//           ),
+//           title: Text(
+//             "AppBar Example",
+//             style: TextStyle(color: Colors.white),
+//           ),
+//           actions: <Widget>[
+//             IconButton(onPressed: () {}, icon: Icon(Icons.settings)),
+//             IconButton(onPressed: () {}, icon: Icon(Icons.exit_to_app)),
+//           ],
+//           flexibleSpace: Container(
+//             decoration: BoxDecoration(
+//                 image: DecorationImage(
+//                   image: AssetImage("assets/images/pattern.png"),
+//                   fit: BoxFit.none,
+//                   repeat: ImageRepeat.repeat,
+//                 ),
+//                 gradient: LinearGradient(
+//                     colors: [Color(0xff0096ff), Color(0xff6610f2)],
+//                     begin: FractionalOffset.topLeft,
+//                     end: FractionalOffset.bottomRight)),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+class CardWidgetApp extends StatelessWidget {
+  const CardWidgetApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          leading: Icon(
-            Icons.adb,
-            color: Colors.white,
-          ),
-          title: Text(
-            "AppBar Example",
-            style: TextStyle(color: Colors.white),
-          ),
-          actions: <Widget>[
-            IconButton(onPressed: () {}, icon: Icon(Icons.settings)),
-            IconButton(onPressed: () {}, icon: Icon(Icons.exit_to_app)),
-          ],
-          flexibleSpace: Container(
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/images/pattern.png"),
-                  fit: BoxFit.none,
-                  repeat: ImageRepeat.repeat,
-                ),
-                gradient: LinearGradient(
-                    colors: [Color(0xff0096ff), Color(0xff6610f2)],
-                    begin: FractionalOffset.topLeft,
-                    end: FractionalOffset.bottomRight)),
+        backgroundColor: Colors.green,
+        body: Container(
+          margin: EdgeInsets.all(10),
+          child: ListView(
+            children: <Widget>[
+              buildCard(Icons.account_box, "Account Box"),
+              buildCard(Icons.adb, "Android"),
+            ],
           ),
         ),
       ),
+    );
+  }
+
+  Card buildCard(IconData iconData, String text) {
+    return Card(
+      elevation: 5,
+      child: Row(children: <Widget>[
+        Container(
+            margin: EdgeInsets.all(5),
+            child: Icon(
+              iconData,
+              color: Colors.green,
+            )),
+        Text(text),
+      ]),
     );
   }
 }
