@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:hello_flutter/login_page.dart';
+import 'package:hello_flutter/main_page.dart';
 
 void main() {
   // runApp(const RowColumn());
@@ -17,7 +18,8 @@ void main() {
   // runApp(const MultiPageNavigationApp());
   // runApp(const AppBarExampleApp());
   // runApp(const CardWidgetApp());
-  runApp(const TextFieldWidgetApp());
+  // runApp(const TextFieldWidgetApp());
+  runApp(const MediaQueryApp());
 }
 
 // class TextApp extends StatelessWidget {
@@ -737,58 +739,69 @@ void main() {
 //   }
 // }
 
-class TextFieldWidgetApp extends StatefulWidget {
-  const TextFieldWidgetApp({super.key});
+// class TextFieldWidgetApp extends StatefulWidget {
+//   const TextFieldWidgetApp({super.key});
 
-  @override
-  State<TextFieldWidgetApp> createState() => _TextFieldWidgetAppState();
-}
+//   @override
+//   State<TextFieldWidgetApp> createState() => _TextFieldWidgetAppState();
+// }
 
-class _TextFieldWidgetAppState extends State<TextFieldWidgetApp> {
-  TextEditingController controller = TextEditingController();
+// class _TextFieldWidgetAppState extends State<TextFieldWidgetApp> {
+//   TextEditingController controller = TextEditingController();
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: Scaffold(
+//         appBar: AppBar(title: Text("TextField Widget")),
+//         body: Container(
+//           margin: EdgeInsets.all(25),
+//           child: Column(
+//             mainAxisAlignment: MainAxisAlignment.spaceAround,
+//             children: <Widget>[
+//               TextField(
+//                 maxLength: 5,
+//                 decoration: InputDecoration(
+//                   // icon: Icon(Icons.people),
+//                   fillColor: Colors.lightBlue[50],
+//                   filled: true,
+//                   prefixIcon: Icon(Icons.people_alt),
+//                   // suffix: Container(
+//                   //   width: 5,
+//                   //   height: 5,
+//                   //   color: Colors.red,
+//                   // ),
+//                   // prefixText: "Username",
+//                   // prefixStyle: TextStyle(color: Colors.blue),
+//                   // labelText: "Username",
+//                   // labelStyle: TextStyle(color: Colors.blue),
+//                   // hintText: "Username isi disini",
+//                   // hintStyle: TextStyle(color: Colors.blue, fontSize: 12),
+//                   border: OutlineInputBorder(
+//                     borderRadius: BorderRadius.circular(10),
+//                   ),
+//                 ),
+//                 onChanged: (value) {
+//                   setState(() {});
+//                 },
+//                 controller: controller,
+//               ),
+//               Text(controller.text)
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+class MediaQueryApp extends StatelessWidget {
+  const MediaQueryApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: Text("TextField Widget")),
-        body: Container(
-          margin: EdgeInsets.all(25),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              TextField(
-                maxLength: 5,
-                decoration: InputDecoration(
-                  // icon: Icon(Icons.people),
-                  fillColor: Colors.lightBlue[50],
-                  filled: true,
-                  prefixIcon: Icon(Icons.people_alt),
-                  // suffix: Container(
-                  //   width: 5,
-                  //   height: 5,
-                  //   color: Colors.red,
-                  // ),
-                  // prefixText: "Username",
-                  // prefixStyle: TextStyle(color: Colors.blue),
-                  // labelText: "Username",
-                  // labelStyle: TextStyle(color: Colors.blue),
-                  // hintText: "Username isi disini",
-                  // hintStyle: TextStyle(color: Colors.blue, fontSize: 12),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-                onChanged: (value) {
-                  setState(() {});
-                },
-                controller: controller,
-              ),
-              Text(controller.text)
-            ],
-          ),
-        ),
-      ),
+      home: MainPage(),
     );
   }
 }
