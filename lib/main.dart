@@ -1,6 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:hello_flutter/floating_page.dart';
 import 'package:hello_flutter/login_page.dart';
 import 'package:hello_flutter/main_page.dart';
 import 'package:hello_flutter/opacity.dart';
@@ -22,7 +24,13 @@ void main() {
   // runApp(const TextFieldWidgetApp());
   // runApp(const MediaQueryApp());
   // runApp(const InkWellApp());
-  runApp(const OpacityApp());
+  // runApp(const OpacityApp());
+
+  runApp(const FloatingActionApp());
+  // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+  //     .then((_) {
+  //   runApp(const FloatingActionApp());
+  // });
 }
 
 // class TextApp extends StatelessWidget {
@@ -871,13 +879,25 @@ void main() {
 //   }
 // }
 
-class OpacityApp extends StatelessWidget {
-  const OpacityApp({super.key});
+// class OpacityApp extends StatelessWidget {
+//   const OpacityApp({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: OpacityPageApp(),
+//     );
+//   }
+// }
+
+class FloatingActionApp extends StatelessWidget {
+  const FloatingActionApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: OpacityPageApp(),
+      debugShowCheckedModeBanner: false,
+      home: FloatingActionPageApp(),
     );
   }
 }
