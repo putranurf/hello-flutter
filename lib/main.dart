@@ -6,6 +6,7 @@ import 'package:hello_flutter/floating_page.dart';
 import 'package:hello_flutter/login_page.dart';
 import 'package:hello_flutter/main_page.dart';
 import 'package:hello_flutter/opacity.dart';
+import 'package:hello_flutter/signin_page.dart';
 
 void main() {
   // runApp(const RowColumn());
@@ -26,11 +27,13 @@ void main() {
   // runApp(const InkWellApp());
   // runApp(const OpacityApp());
 
-  runApp(const FloatingActionApp());
+  // runApp(const FloatingActionApp());
   // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
   //     .then((_) {
   //   runApp(const FloatingActionApp());
   // });
+
+  runApp(const SignInPageApp());
 }
 
 // class TextApp extends StatelessWidget {
@@ -890,14 +893,25 @@ void main() {
 //   }
 // }
 
-class FloatingActionApp extends StatelessWidget {
-  const FloatingActionApp({super.key});
+// class FloatingActionApp extends StatelessWidget {
+//   const FloatingActionApp({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       home: FloatingActionPageApp(),
+//     );
+//   }
+// }
+
+class SignInPageApp extends StatelessWidget {
+  const SignInPageApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: FloatingActionPageApp(),
+      home: SignInPage(),
     );
   }
 }
